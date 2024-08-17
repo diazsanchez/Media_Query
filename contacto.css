@@ -1,0 +1,194 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    color: #333;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Header */
+header {
+    background-color: #c271c2;
+    color: #f8f8f8;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+nav ul li {
+    margin: 0 15px;
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #f4f4f4;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    left: 0;
+    bottom: -5px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Sección de contacto */
+.contact {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 50px auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.contact:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.contact h2 {
+    font-size: 2rem;
+    color: #c271c2;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.contact h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #c271c2;
+    border-radius: 5px;
+}
+
+.contact p, .contact ul {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+    transition: color 0.3s ease-in-out;
+}
+
+.contact a {
+    color: #c271c2;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.contact a:hover {
+    color: #d589dc;
+}
+
+/* Estilo para la lista de horarios */
+.contact ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+    text-align: left;
+    display: inline-block;
+}
+
+.contact ul li {
+    margin-bottom: 10px;
+}
+
+.contact ul li::before {
+    content: '⏰';
+    margin-right: 10px;
+    color: #c271c2;
+}
+
+/* Redes sociales */
+.contact ul a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #c271c2;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.contact ul a:hover {
+    background-color: #c271c2;
+    color: #ffffff;
+}
+
+/* Footer */
+footer {
+    background-color: #d589dc;
+    color: #333;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos responsivos */
+/* Móviles */
+@media (max-width: 600px) {
+    .contact {
+        padding: 30px 10px;
+        margin: 20px;
+    }
+
+    .contact ul {
+        text-align: center;
+    }
+}
+
+/* Tabletas */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .contact {
+        padding: 40px 20px;
+        margin: 40px auto;
+    }
+}
+
+/* Escritorio */
+@media (min-width: 1025px) {
+    .contact {
+        padding: 50px 40px;
+        margin: 50px auto;
+    }
+}

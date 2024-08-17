@@ -1,84 +1,284 @@
 /* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #f4f4f4;
+    color: #333;
+    transition: background-color 0.3s ease-in-out;
 }
 
+/* Estilo del header y navegación */
 header {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-}
-
-nav h1 {
+    background-color: #c271c2;
+    color: #f8f8f8;
+    padding: 20px 0;
     text-align: center;
-    margin: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
-    list-style-type: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
     justify-content: center;
-    padding: 0;
-    margin: 10px 0 0;
+    transition: transform 0.3s ease-in-out;
 }
 
 nav ul li {
     margin: 0 15px;
+    position: relative;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease-in-out;
 }
 
+nav ul li a:hover {
+    color: #f4f4f4;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    left: 0;
+    bottom: -5px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Estilo para la sección hero */
 .hero {
-    background: url('images/hero.jpg') no-repeat center center/cover;
-    color: white;
+    background: url('c:\Users\maria\OneDrive\Escritorio\DESARROLLO WEB\REPOSITORIO GITHUB\close-up-of-a-hamburger-free-photo.jpg') no-repeat center center/cover;
+    color: #ffffff;
     text-align: center;
     padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
 }
 
-.menu {
-    text-align: center;
-    padding: 50px 20px;
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    transition: opacity 0.5s ease-in-out;
 }
 
+.hero-content {
+    position: relative;
+    z-index: 1;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.hero-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: slideInDown 0.8s ease-in-out;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    animation: fadeInUp 0.8s ease-in-out;
+}
+
+.hero-content .btn {
+    background-color: #c271c2;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.hero-content .btn:hover {
+    background-color: #d589dc;
+    transform: scale(1.1);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { transform: translateY(100%); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Estilo para las tarjetas del menú */
 .menu-item {
-    margin: 20px 0;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
 }
 
 .menu-item img {
-    max-width: 100%;
+    width: 100%;
     height: auto;
+    transition: transform 0.3s ease-in-out;
 }
 
-footer {
-    background-color: #333;
-    color: white;
+.menu-item h3 {
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
+.menu-item p {
+    padding: 0 20px 20px;
+    font-size: 1rem;
+    color: #555;
+    transition: color 0.3s ease-in-out;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.menu-item:hover img {
+    transform: scale(1.05);
+}
+
+.menu-item:hover p {
+    color: #333;
+}
+
+/* Estilo para formularios de inicio de sesión/registro */
+.login,
+.register {
+    background-color: hsl(197, 32%, 30%);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    margin: 20px;
     text-align: center;
-    padding: 10px 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.login:hover,
+.register:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: rgb(46, 159, 157);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+button[type="submit"]:hover {
+    background-color: #555555;
+    transform: scale(1.05);
+}
+
+p a {
+    color: hsl(196, 38%, 48%);
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+p a:hover {
+    color: #f8f8f8;
 }
 
 /* Estilos responsivos */
-@media (max-width: 768px) {
+/* Móviles */
+@media (max-width: 600px) {
     nav ul {
-        flex-direction: column;
+        display: none; /* Oculta el menú de navegación */
+    }
+
+    nav::after {
+        content: '☰'; /* Menú hamburguesa */
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+        text-align: center;
     }
 
     .menu-item {
-        margin: 20px 0;
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .login, .register {
+        width: 90%;
+        margin: 10px auto;
+        padding: 15px;
     }
 }
 
-@media (max-width: 480px) {
-    .hero {
-        padding: 50px 20px;
+/* Tabletas */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .menu-item {
+        width: 48%;
+        display: inline-block;
+        margin: 1%;
+        vertical-align: top;
     }
 
-    nav ul {
-        padding: 0;
+    .login, .register {
+        width: 70%;
+        margin: 20px auto;
+        padding: 20px;
+    }
+}
+
+/* Escritorio */
+@media (min-width: 1025px) {
+    .menu-item {
+        width: 30%;
+        display: inline-block;
+        margin: 1.5%;
+        vertical-align: top;
+    }
+
+    .login, .register {
+        width: 50%;
+        margin: 30px auto;
+        padding: 30px;
     }
 }
